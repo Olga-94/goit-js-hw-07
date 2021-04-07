@@ -1,24 +1,21 @@
+const inputVal = document.querySelector('[data-length="6"]');
 
-const inputVal = document.querySelector('#validation-input');
-
-function onInputTyping() {
+function onInputTyping(evt) {
+  
   const inputTextLength = inputVal.value.length;
-  const totalLenght = Number(inputVal.getAttribute('data-length'));
 
-  if (inputTextLength > totalLenght || inputTextLength < totalLenght) {
+  console.log(evt.currentTarget.value.length);
+  
+  if (inputTextLength > 6 || inputTextLength < 6) {
     inputVal.classList.add('invalid');
     inputVal.classList.remove('valid');
   }
 
-  if (inputTextLength === totalLenght) {
+ if (inputTextLength === 6) {
     inputVal.classList.add('valid');
-    inputVal.classList.remove('invalid');
-  }
-
-  if (!inputTextLength) {
-    inputVal.classList.remove('valid');
     inputVal.classList.remove('invalid');
   }
 }
 
 inputVal.addEventListener('blur', onInputTyping);
+
